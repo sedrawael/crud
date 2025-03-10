@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 
 
-// Route::resources('cruds','CrudController');
+
 Route::resource('cruds', CrudController::class);

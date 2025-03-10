@@ -21,6 +21,7 @@
                 <td>{{ $crud->number}}</td>
                 <td>{{ $crud->email }}</td>    
                 <td>{{ $crud->location }}</td>
+               <td> <a href="{{ route('cruds.edit' , $crud->id ) }}">Edit</a> </td>
             </tr> 
         @endforeach 
     </tbody>

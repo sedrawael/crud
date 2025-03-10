@@ -73,16 +73,32 @@ class CrudController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Crud $crud)
+    public function edit($id)
     {
-        //
+       $crud  = Crud :: findOrFail ($id);
+       return view('crud.edit', compact('crud'));
     }
+
+
+
+
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Crud $crud)
+    public function update(Request $request, $id)
     {
-        //
+
+
+        $crud = Crud :: findOrFail ($id);
+        $crud->name = $request->name;
+        $crud->email = $request->email;
+        $crud->number = $request->number;
+        $crud->location = $request->location;
+        $crud->save();
+        return redirect('cruds');
+  
+        
     }
 
 
