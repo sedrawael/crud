@@ -22,7 +22,18 @@
                 <td>{{ $crud->email }}</td>    
                 <td>{{ $crud->location }}</td>
                <td> <a href="{{ route('cruds.edit' , $crud->id ) }}">Edit</a> </td>
-            </tr> 
+          
+            
+            
+            
+               <td>   <form action="{{ route('cruds.destroy', $crud->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
+            </td>
+        </tr> 
+            
         @endforeach 
     </tbody>
 </table>

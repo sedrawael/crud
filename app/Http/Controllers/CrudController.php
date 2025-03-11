@@ -114,8 +114,12 @@ class CrudController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Crud $crud)
+    public function destroy($id)
     {
-        //
+     
+        Crud::findOrFail($id)->delete();
+    
+       
+         return redirect()->route('crud.index');
     }
 }
